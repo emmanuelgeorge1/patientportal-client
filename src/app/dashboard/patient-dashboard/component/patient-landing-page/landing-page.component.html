@@ -1,0 +1,105 @@
+<mat-toolbar class="mat-elevation-z8">
+  <button
+    mat-icon-button
+    *ngIf="sidenav.mode === 'over'"
+    (click)="sidenav.toggle()"
+  >
+    <mat-icon *ngIf="!sidenav.opened"> menu </mat-icon>
+    <mat-icon *ngIf="sidenav.opened"> close </mat-icon>
+  </button>
+  <button
+    (click)="logout()"
+    *ngIf="loginFlag"
+    mat-button
+    class="menu-button"
+    class="navbar-nav flex"
+    style="position: absolute; right: 40px"
+  >
+    <mat-icon>power_settings_new</mat-icon>
+    <span>Logout</span>
+  </button>
+  <div style="font-weight: bolder; font-size: xx-large">PatientPortal</div>
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
+    <div><img class="avatar mat-elevation-z8" [src]="safeUrlPic" /></div>
+
+    <input
+      type="file"
+      hidden
+      (change)="uploadPicture($event)"
+      accept=".png, .jpg, .jpeg"
+      #file
+    />
+    <button
+      matTooltip="Upload your Profile Picture"
+      matTooltipPosition="right"
+      mat-button
+      (click)="file.click()"
+    >
+      <mat-icon> add_a_photo</mat-icon>
+    </button>
+
+    <h4 class="name">{{ patientDetails.name | titlecase }}</h4>
+    <p class="designation">Patient</p>
+
+    <mat-divider> </mat-divider>
+
+    <button
+      mat-button
+      class="menu-button"
+      (click)="navigateUrl('/dashboard/patient/landing/home')"
+    >
+      <mat-icon>home</mat-icon>
+      <span>Home</span>
+    </button>
+    <button
+      mat-button
+      class="menu-button"
+      (click)="navigateUrl('/dashboard/patient/landing/profile')"
+    >
+      <mat-icon>person</mat-icon>
+      <span>Profile</span>
+    </button>
+    <button
+      mat-button
+      class="menu-button"
+      (click)="navigateUrl('/dashboard/patient/landing/schedule-appointment')"
+    >
+      <mat-icon>date_range</mat-icon>
+      <span>Schedule Appointment</span>
+    </button>
+    <button
+      mat-button
+      class="menu-button"
+      (click)="navigateUrl('/dashboard/patient/landing/appointment-history')"
+    >
+      <mat-icon>schedule</mat-icon>
+      <span>Appointment History</span>
+    </button>
+    <button
+      mat-button
+      class="menu-button"
+      (click)="navigateUrl('/dashboard/patient/landing/demographics')"
+    >
+      <mat-icon>description</mat-icon>
+      <span>Demographics </span>
+    </button>
+    <button
+      mat-button
+      class="menu-button"
+      (click)="
+        navigateUrl('/dashboard/patient/landing/medication-and-allergies')
+      "
+    >
+      <mat-icon>medication</mat-icon>
+      <span>Medications and Allergies</span>
+    </button>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="content mat-elevation-z8">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

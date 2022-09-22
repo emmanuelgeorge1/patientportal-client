@@ -1,0 +1,177 @@
+<div class="padding">
+  <div class="row container d-flex justify-content-center">
+    <div class="col-xl-8 col-md-12">
+      <div class="card user-card-full">
+        <div class="row m-l-0 m-r-0">
+          <div class="col-sm-12">
+            <div class="card-block">
+              <h2 class="m-b-20 p-b-5 b-b-default f-w-600">
+                Medication and Allergies
+              </h2>
+              <br />
+              <div class="row">
+                <form [formGroup]="medicationsForm" (ngSubmit)="onSubmit()">
+                  <div class="form-floating mb-4">
+                    <input
+                      type="text"
+                      id="form3Example1cg"
+                      formControlName="currentMedication"
+                      class="form-control form-control-lg"
+                      [ngClass]="{
+                        'is-invalid': submitted && f.currentMedication.errors
+                      }"
+                    />
+                    <label class="form-label" for="form3Example1cg"
+                      >Current Medication
+                      <span style="color: red">*</span></label
+                    >
+                    <div
+                      *ngIf="submitted && f.currentMedication.errors"
+                      class="invalid-feedback"
+                    >
+                      <div *ngIf="f.currentMedication.errors.required">
+                        First Name is required
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-floating mb-4">
+                    <input
+                      type="text"
+                      id="form3Example1cg"
+                      formControlName="otc"
+                      class="form-control form-control-lg"
+                    />
+                    <label class="form-label" for="form3Example1cg"
+                      >OTC(Over the Counter) Medication</label
+                    >
+                  </div>
+                  <div class="form-floating mb-4">
+                    <input
+                      type="text"
+                      id="form3Example1cg"
+                      formControlName="med"
+                      class="form-control form-control-lg"
+                    />
+                    <label class="form-label" for="form3Example1cg"
+                      >Herbs/Vitamin/Minerals/Antibiotics</label
+                    >
+                  </div>
+
+                  <div class="form-floating mb-4">
+                    <input
+                      type="text"
+                      id="form3Example1cg"
+                      formControlName="socialDrug"
+                      class="form-control form-control-lg"
+                    />
+                    <label class="form-label" for="form3Example1cg"
+                      >Social Drugs</label
+                    >
+                  </div>
+
+                  <div class="form-floating mb-4">
+                    <input
+                      type="text"
+                      id="form3Example1cg"
+                      formControlName="pastMed"
+                      class="form-control form-control-lg"
+                      [ngClass]="{
+                        'is-invalid': submitted && f.pastMed.errors
+                      }"
+                    />
+                    <label class="form-label" for="form3Example1cg"
+                      >Any Past Prescribed Medication
+                      <span style="color: red">*</span></label
+                    >
+                    <div
+                      *ngIf="submitted && f.pastMed.errors"
+                      class="invalid-feedback"
+                    >
+                      <div *ngIf="f.pastMed.errors.required">
+                        Past Prescribed Medication is required
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-floating mb-4">
+                    <input
+                      type="text"
+                      id="form3Example1cg"
+                      class="form-control form-control-lg"
+                      formControlName="allergies"
+                      [ngClass]="{
+                        'is-invalid': submitted && f.allergies.errors
+                      }"
+                    />
+                    <label class="form-label" for="form3Example1cg"
+                      >Drug-Allergies <span style="color: red">*</span></label
+                    >
+                    <div
+                      *ngIf="submitted && f.allergies.errors"
+                      class="invalid-feedback"
+                    >
+                      <div *ngIf="f.allergies.errors.required">
+                        Drug-Allergies is required
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="form-floating mb-4">
+                    <input
+                      type="text"
+                      id="form3Example1cg"
+                      formControlName="covidVacin"
+                      class="form-control form-control-lg"
+                      [ngClass]="{
+                        'is-invalid': submitted && f.covidVacin.errors
+                      }"
+                    />
+                    <label class="form-label" for="form3Example1cg"
+                      >Have You Taken Covid 19 Vacitation? If yes please enter
+                      the type of Vacitation.
+                      <span style="color: red">*</span></label
+                    >
+                    <div
+                      *ngIf="submitted && f.covidVacin.errors"
+                      class="invalid-feedback"
+                    >
+                      <div *ngIf="f.covidVacin.errors.required">
+                        Vacitation details is required
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-floating mb-4">
+                    <input
+                      type="text"
+                      id="form3Example1cg"
+                      formControlName="otherAllergies"
+                      class="form-control form-control-lg"
+                      [ngClass]="{
+                        'is-invalid': submitted && f.otherAllergies.errors
+                      }"
+                    />
+                    <label class="form-label" for="form3Example1cg"
+                      >Other Allergies <span style="color: red">*</span></label
+                    >
+                    <div
+                      *ngIf="submitted && f.otherAllergies.errors"
+                      class="invalid-feedback"
+                    >
+                      <div *ngIf="f.otherAllergies.errors.required">
+                        Allergies feild is required
+                      </div>
+                    </div>
+                  </div>
+                  <div class="d-flex justify-content-center">
+                    <button type="submit" class="btn btn-primary btn-lg">
+                      Submit
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

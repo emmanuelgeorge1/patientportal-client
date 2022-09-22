@@ -1,0 +1,17 @@
+{
+  "login": {
+    "title": "ನಿಮ್ಮ ರೋಗಿಯ ಪೋರ್ಟಲ್‌ಗೆ ಲಾಗಿನ್ ಮಾಡಿ",
+    "email.label": "ಇಮೇಲ್ ",
+    "email.error1": "ಇಮೇಲ್ ಅಗತ್ಯವಿದೆ",
+    "email.error2": "ಮಾನ್ಯವಾದ ಇಮೇಲ್ ವಿಳಾಸವಾಗಿರಬೇಕು",
+    "password.label": "ಗುಪ್ತಪದ",
+    "password.error1": "ಗುಪ್ತಪದದ ಅಗತ್ಯವಿದೆ",
+    "button.name": " ಲಾಗಿನ್ ಮಾಡಿ",
+    "register.link": "ಹೊಸ ಖಾತೆಯನ್ನು ರಚಿಸಿ",
+    "button.en": "English",
+    "button.hi": "Hindi",
+    "button.ta": "Tamil",
+    "button.ka": "Kannada",
+    "button.ma": "Malayalam"
+  }
+}

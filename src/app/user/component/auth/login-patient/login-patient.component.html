@@ -1,0 +1,115 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-9 col-md-7 col-lg-6 mx-auto">
+      <div class="card border-0 shadow rounded-3 my-5">
+        <div class="card-body p-4 p-sm-5">
+          <h2 class="text text-center mb-5">{{ "login.title" | translate }}</h2>
+          <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <div class="form-floating mb-4">
+              <input
+                type="email"
+                class="form-control"
+                formControlName="email"
+                id="floatingInput"
+                [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
+              />
+
+              <label for="floatingInput">{{
+                "login.email.label" | translate
+              }}</label>
+              <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                <div *ngIf="f.email.errors.required">
+                  {{ "login.email.error1" | translate }}
+                </div>
+                <div *ngIf="f.email.errors.email">
+                  {{ "login.email.error2" | translate }}
+                </div>
+              </div>
+            </div>
+            <div class="form-floating mb-4">
+              <input
+                type="password"
+                class="form-control"
+                id="floatingPassword"
+                formControlName="password"
+                [ngClass]="{ 'is-invalid': submitted && f.password.errors }"
+              />
+              <label for="floatingPassword">{{
+                "login.password.label" | translate
+              }}</label>
+              <div
+                *ngIf="submitted && f.password.errors"
+                class="invalid-feedback"
+              >
+                <div *ngIf="f.password.errors.required">
+                  {{ "login.password.error1" | translate }}
+                </div>
+              </div>
+            </div>
+
+            <div class="d-grid">
+              <button
+                class="btn btn-primary btn-login text-uppercase fw-bold"
+                type="submit"
+              >
+                {{ "login.button.name" | translate }}
+              </button>
+            </div>
+            <br />
+            <br />
+            <div class="d-grid mb-2">
+              <a
+                class="btn btn-google btn-login text-uppercase fw-bold"
+                [routerLink]="['/user/register-Patient']"
+                >{{ "login.register.link" | translate }}
+              </a>
+            </div>
+            <hr class="my-4" />
+            <br />
+            <div class="btn-group">
+              <button
+                type="button"
+                class="btn btn-info text-uppercase fw-bold"
+                (click)="useLanguage('en')"
+              >
+                {{ "login.button.en" | translate }}
+              </button>
+              <button
+                style="border-left: 1px solid rgb(0, 0, 0)"
+                type="button"
+                class="btn btn-info text-uppercase fw-bold"
+                (click)="useLanguage('hi')"
+              >
+                {{ "login.button.hi" | translate }}
+              </button>
+              <button
+                style="border-left: 1px solid rgb(0, 0, 0)"
+                class="btn btn-info text-uppercase fw-bold"
+                type="button"
+                (click)="useLanguage('ta')"
+              >
+                {{ "login.button.ta" | translate }}
+              </button>
+              <button
+                type="button"
+                style="border-left: 1px solid rgb(0, 0, 0)"
+                class="btn btn-info text-uppercase fw-bold"
+                (click)="useLanguage('ka')"
+              >
+                {{ "login.button.ka" | translate }}
+              </button>
+              <button
+                type="button"
+                style="border-left: 1px solid rgb(0, 0, 0)"
+                class="btn btn-info text-uppercase fw-bold"
+                (click)="useLanguage('ma')"
+              >
+                {{ "login.button.ma" | translate }}
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <mat-card class="example-card">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>Add New Physician</mat-card-title>
+        </mat-card-header>
+        <img
+          mat-card-image
+          src="/assets/images/physician.jpg"
+          alt="Photo of a Physician"
+        />
+        <mat-card-content> </mat-card-content>
+        <mat-card-actions>
+          <button
+            class="btn btn-primary btn-login text-uppercase fw-bold"
+            (click)="physicianRegister()"
+            mat-button
+          >
+            Register
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+    <div class="col">
+      <mat-card class="example-card">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>Add new Admin</mat-card-title>
+        </mat-card-header>
+        <img
+          mat-card-image
+          src="/assets/images/Admin.jpg"
+          alt="Photo of a Admin"
+        />
+        <mat-card-content> </mat-card-content>
+        <mat-card-actions>
+          <button
+            (click)="adminRegister()"
+            class="btn btn-primary btn-login text-uppercase fw-bold"
+            mat-button
+          >
+            Register
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</div>

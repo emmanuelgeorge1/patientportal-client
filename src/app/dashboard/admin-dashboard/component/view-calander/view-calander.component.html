@@ -1,0 +1,23 @@
+<button
+  style="float: right"
+  class="btn-danger fw-bold"
+  mat-button
+  mat-dialog-close
+>
+  <span class="material-icons"> close </span>
+</button>
+
+<br />
+<br />
+<br />
+
+<ejs-schedule
+  #scheduleObj
+  width="100%"
+  height="500px"
+  [eventSettings]="eventObject"
+  [currentView]="setView"
+  [readonly]="isReadOnly"
+>
+  ></ejs-schedule
+>

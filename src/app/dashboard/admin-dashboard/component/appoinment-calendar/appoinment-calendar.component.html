@@ -1,0 +1,58 @@
+<section class="container">
+  <div class="left-half">
+    <br />
+    <mat-form-field appearance="fill">
+      <mat-label>Select Physician Speciality</mat-label>
+      <mat-select (selectionChange)="changeSpecialty($event)">
+        <mat-option value="General practitioner">
+          General practitioner
+        </mat-option>
+        <mat-option value="Cardiology"> Cardiology </mat-option>
+        <mat-option value="Paediatrics"> Paediatrics </mat-option>
+        <mat-option value="Dermatologist"> Dermatologist </mat-option>
+        <mat-option value="General surgery"> General surgery </mat-option>
+        <mat-option value="Pathology"> Pathology </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br />
+    <mat-form-field appearance="fill">
+      <mat-label>Select Physician Name</mat-label>
+      <mat-select [ngModel]="selectedObj" (ngModelChange)="onSelected($event)">
+        <mat-option [value]="i.name" *ngFor="let i of names">
+          {{ i.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br />
+    <mat-form-field appearance="fill">
+      <mat-label>Select Status of the Appointment</mat-label>
+      <mat-select [(value)]="selectedStatus">
+        <mat-option value="Pending"> Pending </mat-option>
+        <mat-option value="Approved"> Approved </mat-option>
+        <mat-option value="Rejected"> Rejected </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br />
+    <br />
+    <button
+      [disabled]="!boolean || !selectedStatus"
+      class="btn btn-primary text-uppercase"
+      (click)="viewAppointment()"
+    >
+      View Appointments
+    </button>
+  </div>
+  <div class="right-half">
+    <div id="chart">
+      <apx-chart
+        [series]="chartOptions.series"
+        [chart]="chartOptions.chart"
+        [dataLabels]="chartOptions.dataLabels"
+        [responsive]="chartOptions.responsive"
+        [xaxis]="chartOptions.xaxis"
+        [legend]="chartOptions.legend"
+        [fill]="chartOptions.fill"
+      ></apx-chart>
+    </div>
+  </div>
+</section>

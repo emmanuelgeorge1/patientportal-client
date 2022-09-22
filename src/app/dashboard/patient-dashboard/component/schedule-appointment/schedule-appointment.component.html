@@ -1,0 +1,117 @@
+<ngx-flip [flip]="flip">
+  <div front class="front">
+    <form
+      class="example-form"
+      [formGroup]="appointmentForm"
+      (ngSubmit)="onSubmit()"
+    >
+      <div class="cardd shadow mb-1 bg-white rounded">
+        <div class="cardd-body">
+          <p class="cardd-title text-center shadow mb-5 rounded">
+            Schedule Appointment
+          </p>
+          <br />
+          <br />
+
+          <div class="row">
+            <div class="col-sm-6">
+              <label for="FormControlSelect1"> Physician Speciality</label>
+              <select
+                class="form-control"
+                formControlName="speciality"
+                [ngClass]="{ 'is-invalid': submitted && f.speciality.errors }"
+                (change)="changeSpecialty($event)"
+              >
+                <option>General practitioner</option>
+                <option>Cardiology</option>
+                <option>Paediatrics</option>
+                <option>Dermatologist</option>
+                <option>General surgery</option>
+                <option>Pathology</option>
+              </select>
+              <div
+                *ngIf="submitted && f.speciality.errors"
+                class="invalid-feedback"
+              >
+                <div *ngIf="f.speciality.errors.required">
+                  Speciality field is required
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <label for="FormControlSelect2"> Physician Name</label>
+              <select
+                class="form-control"
+                formControlName="physician"
+                [ngClass]="{ 'is-invalid': submitted && f.physician.errors }"
+              >
+                <option *ngFor="let doc of names" [value]="doc.name">
+                  {{ doc.name }}
+                </option>
+              </select>
+              <div
+                *ngIf="submitted && f.physician.errors"
+                class="invalid-feedback"
+              >
+                <div *ngIf="f.physician.errors.required">
+                  Physician field is required
+                </div>
+              </div>
+            </div>
+          </div>
+          <br />
+          <br />
+
+          <div class="row">
+            <div class="col-sm-12">
+              <ejs-datetimepicker
+                id="datetimepicker"
+                class="form-control"
+                placeholder="Select a date"
+                formControlName="date"
+                [min]="minDate"
+                [ngClass]="{ 'is-invalid': submitted && f.date.errors }"
+              ></ejs-datetimepicker>
+              <div *ngIf="submitted && f.date.errors" class="invalid-feedback">
+                <div *ngIf="f.date.errors.required">
+                  Date of Appointment is required
+                </div>
+              </div>
+            </div>
+          </div>
+          <br />
+          <button
+            class="btn btn-primary btn-login text-uppercase fw-bold"
+            type="submit"
+          >
+            Book Appointment
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div back class="back">
+    <div class="card text-center shadow mb-5 rounded">
+      <div class="card-header">Appointment Scheduled</div>
+      <div class="card-body">
+        <br />
+
+        <br />
+
+        {{ patientDetails.name | titlecase }}
+        Your appointment is scheduled with
+        {{ physician.physician | titlecase }}
+        On
+        {{ physician.date | date: "longDate" }}
+        <br />
+
+        <br />
+      </div>
+      <div class="card-footer text-muted">
+        Time of Appointment
+        {{ physician.date | date: "shortTime" }}
+      </div>
+    </div>
+  </div>
+</ngx-flip>

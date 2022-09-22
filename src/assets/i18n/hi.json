@@ -1,0 +1,17 @@
+{
+  "login": {
+    "title": "अपने पेशेंटपोर्टल में लॉग इन करें",
+    "email.label": "ईमेल ",
+    "email.error1": "ईमेल की जरूरत है",
+    "email.error2": "   एक वैध ई - मेल पता होना चाहिए",
+    "password.label": "पासवर्ड",
+    "password.error1": "    पासवर्ड की आवश्यकता है",
+    "button.name": "लॉग इन करें",
+    "register.link": " नया खाता बनाएँ",
+    "button.en": "English",
+    "button.hi": "Hindi",
+    "button.ta": "Tamil",
+    "button.ka": "Kannada",
+    "button.ma": "Malayalam"
+  }
+}

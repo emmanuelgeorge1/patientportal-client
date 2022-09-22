@@ -1,0 +1,28 @@
+.mat-form-field {
+  width: 40%;
+}
+
+section {
+  text-align: center;
+}
+
+div {
+  height: 60%;
+}
+
+.left-half {
+  padding-top: 5%;
+  position: absolute;
+  left: 0px;
+  width: 50%;
+}
+
+.right-half {
+  position: absolute;
+  right: 0px;
+  width: 50%;
+}
+#chart {
+  max-width: 650px;
+  margin: 35px auto;
+}

@@ -1,0 +1,17 @@
+{
+  "login": {
+    "title": " പേഷ്യന്റ് പോർട്ടൽ",
+    "email.label": "ഇമെയിൽ ",
+    "email.error1": "ഇമെയിൽ ആവശ്യമാണ്",
+    "email.error2": "ശരിയായ ഇമെയിൽ വിലാസം ആയിരിക്കണം",
+    "password.label": "പാസ്വേഡ്",
+    "password.error1": "പാസ്‌വേഡ് ആവശ്യമാണ്",
+    "button.name": "ലോഗിൻ",
+    "register.link": "പുതിയ അക്കൗണ്ട് സൃഷ്ടിക്കുക",
+    "button.en": "English",
+    "button.hi": "Hindi",
+    "button.ta": "Tamil",
+    "button.ka": "Kannada",
+    "button.ma": "Malayalam"
+  }
+}

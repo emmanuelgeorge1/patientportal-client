@@ -1,0 +1,12 @@
+.astext {
+  background: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+  color: aliceblue;
+  cursor: pointer;
+}
+.page-footer {
+  background: #004a9f;
+  color: white;
+}

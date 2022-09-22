@@ -1,0 +1,11 @@
+table {
+  width: 100%;
+  height: 100%;
+}
+
+/* .cell {
+  padding: 10px !important;
+} */
+.success {
+  color: #15e63f;
+}

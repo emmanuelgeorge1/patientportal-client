@@ -1,0 +1,250 @@
+<div class="container emp-profile">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="profile-img">
+        <img [src]="safeUrlPic" />
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="profile-head">
+        <h1 style="text-align: left; font-weight: bolder">
+          {{ patientDetails.name | titlecase }}
+        </h1>
+        <h6 style="font-size: larger">
+          {{ patientDetails.role }}
+        </h6>
+        <p class="proile-rating"><span></span></p>
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <li class="nav-item">
+            <a
+              class="nav-link active"
+              id="home-tab"
+              data-toggle="tab"
+              href="#home"
+              role="tab"
+              aria-controls="home"
+              aria-selected="true"
+              >About</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              (click)="demographicsInfo()"
+              class="nav-link"
+              id="profile-tab"
+              data-toggle="tab"
+              href="#demo"
+              role="tab"
+              aria-controls="profile"
+              aria-selected="false"
+              >Demographics</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              (click)="medicationInfo()"
+              class="nav-link"
+              id="profile-tab"
+              data-toggle="tab"
+              href="#med"
+              role="tab"
+              aria-controls="profile"
+              aria-selected="false"
+              >Medications</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-8">
+      <div class="tab-content profile-tab" id="myTabContent">
+        <div
+          class="tab-pane fade show active"
+          id="home"
+          role="tabpanel"
+          aria-labelledby="home-tab"
+        >
+          <div class="row">
+            <div class="col-md-6">
+              <label>User Id</label>
+            </div>
+            <div class="col-md-6">
+              <p>{{ patientDetails.user_id }}</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <label>Name</label>
+            </div>
+            <div class="col-md-6">
+              <p>{{ patientDetails.name | titlecase }}</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <label>Email</label>
+            </div>
+            <div class="col-md-6">
+              <p>{{ patientDetails.email }}</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <label>Phone</label>
+            </div>
+            <div class="col-md-6">
+              <p>{{ patientDetails.phone }}</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <label>Date of Birth</label>
+            </div>
+            <div class="col-md-6">
+              <p>{{ patientDetails.dob }}</p>
+            </div>
+          </div>
+        </div>
+        <div
+          class="tab-pane fade"
+          id="demo"
+          role="tabpanel"
+          aria-labelledby="profile-tab"
+        >
+          <div *ngFor="let item of deomorphicsDatas">
+            <div class="row">
+              <div class="col-md-6">
+                <label>Address</label>
+              </div>
+              <div class="col-md-6">
+                <p>{{ item.address }}</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <label>Ethnicity/Race</label>
+              </div>
+              <div class="col-md-6">
+                <p>{{ item.race }}</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <label>Education Details</label>
+              </div>
+              <div class="col-md-6">
+                <p>{{ item.education }}</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <label>Employment Details</label>
+              </div>
+              <div class="col-md-6">
+                <p>{{ item.employment }}</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <label>Medical History</label>
+              </div>
+              <div class="col-md-6">
+                <p>{{ item.medicalHistory }}</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <label>Family Medical History</label>
+              </div>
+              <div class="col-md-6">
+                <p>{{ item.familyMedicalHistory }}</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <label>Surgeries</label>
+              </div>
+              <div class="col-md-6">
+                <p>{{ item.surgeries }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="tab-pane fade"
+          id="med"
+          role="tabpanel"
+          aria-labelledby="profile-tab"
+        >
+          <div *ngFor="let item of medicationDatas">
+            <div class="row">
+              <div class="col-md-6">
+                <label>Current Medication</label>
+              </div>
+              <div class="col-md-6">
+                <p>{{ item.currentMedication }}</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <label>OTC(Over the Counter) Medication</label>
+              </div>
+              <div class="col-md-6">
+                <p>{{ item.otc }}</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <label>Herbs/Vitamin/Minerals/Antibiotics</label>
+              </div>
+              <div class="col-md-6">
+                <p>{{ item.med }}</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <label>Social Drugs</label>
+              </div>
+              <div class="col-md-6">
+                <p>{{ item.socialDrug }}</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <label>Any Past Prescribed Medications</label>
+              </div>
+              <div class="col-md-6">
+                <p>{{ item.pastMed }}</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6"><label>Drug-Allergies</label></div>
+              <div class="col-md-6">
+                <p>{{ item.allergies }}</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <label> Vacitation Details</label>
+              </div>
+              <div class="col-md-6">
+                <p>{{ item.covidVacin }}</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <label>Other Allergies</label>
+              </div>
+              <div class="col-md-6">
+                <p>{{ item.otherAllergies }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+{
+  "login": {
+    "title": "உங்கள் நோயாளி போர்ட்டலில் உள்நுழைக",
+    "email.label": "மின்னஞ்சல் ",
+    "email.error1": "மின்னஞ்சல் தேவை",
+    "email.error2": "ஒரு செல்லுபடியாகும் மின்னஞ்சல் முகவரியை இருக்க வேண்டும்",
+    "password.label": "கடவுச்சொல்",
+    "password.error1": " கடவுச்சொல் தேவை",
+    "button.name": "உள்நுழைய",
+    "register.link": "புதிய கணக்கை உருவாக்க",
+    "button.en": "English",
+    "button.hi": "Hindi",
+    "button.ta": "Tamil",
+    "button.ka": "Kannada",
+    "button.ma": "Malayalam"
+  }
+}

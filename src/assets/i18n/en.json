@@ -1,0 +1,17 @@
+{
+  "login": {
+    "title": "Login to your PatientPortal",
+    "email.label": "Email ",
+    "email.error1": "Email is required",
+    "email.error2": "must be a valid email address",
+    "password.label": "Password",
+    "password.error1": "Password is required",
+    "button.name": "Login",
+    "register.link": "Create New Account",
+    "button.en": "English",
+    "button.hi": "Hindi",
+    "button.ta": "Tamil",
+    "button.ka": "Kannada",
+    "button.ma": "Malayalam"
+  }
+}

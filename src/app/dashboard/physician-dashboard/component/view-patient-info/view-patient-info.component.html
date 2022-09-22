@@ -1,0 +1,199 @@
+<div class="container">
+  <div class="main-body">
+    <div class="row gutters-sm">
+      <div class="col-md-4 mb-3">
+        <div class="card">
+          <div class="card-body">
+            <div class="d-flex flex-column align-items-center text-center">
+              <img
+                [src]="safeUrlPic"
+                alt="patient"
+                class="rounded-circle"
+                width="150"
+              />
+              <div class="mt-3" *ngFor="let item of deomorphicsDatas">
+                <h4>
+                  {{ item.firstName | titlecase }}
+                  {{ item.lastName | titlecase }}
+                </h4>
+                <p class="text-muted font-size-sm">
+                  {{ item.gender | titlecase }}
+                </p>
+
+                <p>Last Updated At</p>
+                <p class="text-muted font-size-sm">
+                  {{ item.updatedAt | date: "longDate" }}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card mt-3" *ngFor="let item of elementData; let i = index">
+          <ul class="list-group list-group-flush">
+            <li
+              class="list-group-item justify-content-between align-items-center flex-wrap"
+            >
+              <div class="row">
+                <div class="col-sm-6">
+                  <small>{{ i + 1 }}). Appointment Booked On:</small>
+                </div>
+                <div class="col-sm-6 text-primary">
+                  {{ item.date | date: "longDate" }}
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6"></div>
+                <div class="col-sm-6 text-primary">
+                  {{ item.date | date: "shortTime" }}
+                </div>
+              </div>
+              <br />
+              <form [formGroup]="physicianNote" (ngSubmit)="onSubmit()">
+                <div class="md-form">
+                  <small>Note for patient:</small>
+                  <textarea
+                    type="text"
+                    id="form7"
+                    class="form-control"
+                    formControlName="noteFromDoc"
+                    [ngClass]="{
+                      'is-invalid': submitted && f.noteFromDoc.errors
+                    }"
+                  ></textarea>
+                </div>
+
+                <button
+                  style="margin-top: 4px"
+                  class="btn btn-primary text-uppercase fw-bold"
+                  type="submit"
+                >
+                  Send
+                </button>
+              </form>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-8">
+        <div class="card mb-3">
+          <div class="card-body" *ngFor="let item of deomorphicsDatas">
+            <div class="row">
+              <div class="col-sm-3">
+                <h3 class="mb-0">Full Name</h3>
+              </div>
+              <div class="col-sm-9 text-primary">
+                {{ item.firstName | titlecase }} {{ item.lastName | titlecase }}
+              </div>
+            </div>
+            <hr />
+            <div class="row">
+              <div class="col-sm-3">
+                <h3 class="mb-0">Email</h3>
+              </div>
+              <div class="col-sm-9 text-primary">{{ item.email }}</div>
+            </div>
+            <hr />
+            <div class="row">
+              <div class="col-sm-3">
+                <h3 class="mb-0">Ethnicity/Race</h3>
+              </div>
+              <div class="col-sm-9 text-primary">{{ item.race }}</div>
+            </div>
+            <hr />
+            <div class="row">
+              <div class="col-sm-3">
+                <h3 class="mb-0">Employment Details</h3>
+              </div>
+              <div class="col-sm-9 text-primary">{{ item.employment }}</div>
+            </div>
+            <hr />
+            <div class="row">
+              <div class="col-sm-3">
+                <h3 class="mb-0">Address</h3>
+              </div>
+              <div class="col-sm-9 text-primary">
+                {{ item.address }}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row gutters-sm">
+          <div class="col-sm-6 mb-3">
+            <div class="card h-100">
+              <div class="card-body">
+                <h4 class="d-flex align-items-center mb-3">
+                  <i class="material-icons text-info mr-2">assignment</i>Patient
+                  Demographics
+                </h4>
+                <div *ngFor="let item of deomorphicsDatas">
+                  <small>Education Details</small>
+                  <div class="mb-3 text-primary" style="height: 10px">
+                    {{ item.education | titlecase }}
+                  </div>
+                  <small>Medical History</small>
+                  <div class="mb-3 text-primary" style="height: 10px">
+                    {{ item.medicalHistory | titlecase }}
+                  </div>
+                  <small>Family Medical History</small>
+                  <div class="mb-3 text-primary" style="height: 10px">
+                    {{ item.familyMedicalHistory | titlecase }}
+                  </div>
+                  <small>Previous Surgeries</small>
+                  <div class="mb-3 text-primary" style="height: 10px">
+                    {{ item.surgeries | titlecase }}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 mb-3">
+            <div class="card h-100">
+              <div class="card-body">
+                <h4 class="d-flex align-items-center mb-3">
+                  <i class="material-icons text-info mr-2">assignment</i>Patient
+                  Medications Details
+                </h4>
+                <div *ngFor="let item of medicationDatas">
+                  <small>Current Medication</small>
+                  <div class="mb-3 text-primary" style="height: 10px">
+                    {{ item.currentMedication | titlecase }}
+                  </div>
+                  <small>OTC(Over the Counter) Medication</small>
+                  <div class="mb-3 text-primary" style="height: 10px">
+                    {{ item.otc | titlecase }}
+                  </div>
+                  <small>Herbs/Vitamin/Minerals/Antibiotics</small>
+                  <div class="mb-3 text-primary" style="height: 10px">
+                    {{ item.med | titlecase }}
+                  </div>
+                  <small>Social Drugs</small>
+                  <div class="mb-3 text-primary" style="height: 10px">
+                    {{ item.socialDrug | titlecase }}
+                  </div>
+                  <small>Any Past Prescribed Medications</small>
+                  <div class="mb-3 text-primary" style="height: 10px">
+                    {{ item.pastMed | titlecase }}
+                  </div>
+                  <small>Drug-Allergies</small>
+                  <div class="mb-3 text-primary" style="height: 10px">
+                    {{ item.allergies | titlecase }}
+                  </div>
+                  <small>Vacitation Details</small>
+                  <div class="mb-3 text-primary" style="height: 10px">
+                    {{ item.covidVacin | titlecase }}
+                  </div>
+                  <small>Other Allergies</small>
+                  <div class="mb-3 text-primary" style="height: 10px">
+                    {{ item.otherAllergies | titlecase }}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

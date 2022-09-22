@@ -1,0 +1,76 @@
+<table
+  mat-table
+  [dataSource]="patientInfo"
+  matSort
+  (matSortChange)="announceSortChange($event)"
+  class="mat-elevation-z8"
+>
+  <ng-container matColumnDef="position">
+    <th mat-header-cell *matHeaderCellDef>No.</th>
+    <td mat-cell *matCellDef="let element; let i = index">{{ i + 1 }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="name">
+    <th
+      mat-header-cell
+      *matHeaderCellDef
+      mat-sort-header
+      sortActionDescription="Sort by name"
+    >
+      Patient Name
+    </th>
+    <td mat-cell *matCellDef="let element">{{ element.name | titlecase }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="phone">
+    <th mat-header-cell *matHeaderCellDef>Phone Number</th>
+    <td mat-cell *matCellDef="let element">{{ element.phone }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="date">
+    <th mat-header-cell *matHeaderCellDef>Appointment date</th>
+    <td mat-cell *matCellDef="let element">
+      <div>
+        <ng-container *ngFor="let item of element?.appointment; let i = index">
+          <div>
+            <span>{{ i + 1 }}) {{ item.date | date: "longDate" }}</span>
+          </div>
+        </ng-container>
+      </div>
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="time">
+    <th mat-header-cell *matHeaderCellDef>Appointment Time</th>
+
+    <td mat-cell *matCellDef="let element">
+      <div>
+        <ng-container *ngFor="let item of element?.appointment; let i = index">
+          <div>
+            <span>{{ i + 1 }}) {{ item.date | date: "shortTime" }}</span>
+          </div>
+        </ng-container>
+      </div>
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef>Patient Details</th>
+    <td mat-cell *matCellDef="let element">
+      <!-- <ng-container *ngFor="let item of element?.appointment; let i = index">
+        <div>
+        
+        </div>
+      </ng-container> -->
+      <button
+        mat-icon-button
+        (click)="viewDemo(element.user_id)"
+        (click)="viewMed(element.user_id)"
+        color="primary"
+      >
+        <mat-icon aria-label="Visibility">visibility</mat-icon> View More
+      </button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>

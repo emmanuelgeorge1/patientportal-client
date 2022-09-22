@@ -1,0 +1,126 @@
+<div
+  *ngIf="appointmentFlag === false"
+  class="page-content page-container"
+  id="page-content"
+>
+  <div class="padding">
+    <div class="row container d-flex justify-content-center">
+      <div class="col-xl-8 col-md-12">
+        <div class="card user-card-full">
+          <div class="row m-l-0 m-r-0">
+            <div class="col-sm-12">
+              <div class="card-block">
+                <h2 class="m-b-20 p-b-5 b-b-default f-w-600">
+                  Upcomming Appointments
+                </h2>
+                <br />
+                <div class="row">
+                  <div class="col-sm-12">
+                    <h1 class="text-muted f-w-400">
+                      Schedule an Appointment with Physician First
+                    </h1>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div
+  *ngIf="appointmentFlag == true"
+  class="page-content page-container"
+  id="page-content"
+>
+  <div class="padding">
+    <div class="row container d-flex justify-content-center">
+      <div class="col-xl-8 col-md-12">
+        <div class="card user-card-full">
+          <div class="row m-l-0 m-r-0">
+            <div class="col-xl-12">
+              <div class="card-block">
+                <h2 class="m-b-20 p-b-5 b-b-default f-w-600">
+                  Upcomming Appointments
+                </h2>
+                <br />
+                <table
+                  mat-table
+                  [dataSource]="appointmentData"
+                  class="demo-table"
+                >
+                  <!-- Position Column -->
+                  <ng-container matColumnDef="Date">
+                    <th mat-header-cell *matHeaderCellDef>
+                      Date of Appointment
+                    </th>
+                    <td mat-cell *matCellDef="let element">
+                      {{ element.date | date: "longDate" }}
+                    </td>
+                  </ng-container>
+
+                  <!-- Name Column -->
+                  <ng-container matColumnDef="Time">
+                    <th mat-header-cell *matHeaderCellDef>Time</th>
+                    <td mat-cell *matCellDef="let element">
+                      {{ element.date | date: "shortTime" }}
+                    </td>
+                  </ng-container>
+
+                  <!-- Weight Column -->
+                  <ng-container matColumnDef="Speciality">
+                    <th mat-header-cell *matHeaderCellDef>
+                      Physician Speciality
+                    </th>
+                    <td mat-cell *matCellDef="let element">
+                      {{ element.speciality }}
+                    </td>
+                  </ng-container>
+                  <ng-container matColumnDef="Physician">
+                    <th mat-header-cell *matHeaderCellDef>Physician</th>
+                    <td mat-cell *matCellDef="let element">
+                      {{ element.physician }}
+                    </td>
+                  </ng-container>
+
+                  <!-- Cancel Column -->
+
+                  <ng-container matColumnDef="actions">
+                    <th mat-header-cell *matHeaderCellDef>Cancel</th>
+                    <td mat-cell *matCellDef="let element; let i = index">
+                      <span
+                        [matTooltip]="
+                          element.appointment_status == 'Approved'
+                            ? 'Cannot cancel Approved appointment'
+                            : null
+                        "
+                      >
+                        <button
+                          [disabled]="element.appointment_status == 'Approved'"
+                          mat-icon-button
+                          (click)="delete(element, i)"
+                          class="iconbutton"
+                          color="warn"
+                        >
+                          <mat-icon aria-label="Cancel">cancel</mat-icon>
+                        </button>
+                      </span>
+                    </td>
+                  </ng-container>
+
+                  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                  <tr
+                    mat-row
+                    *matRowDef="let row; columns: displayedColumns"
+                  ></tr>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
